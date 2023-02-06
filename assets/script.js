@@ -13,7 +13,40 @@ let tempEvals = {
     cold: 10
 }
 
-// let searchedCities = {};
+const cities = {
+    London : {
+        lat: 3,
+        lon: 2
+    },
+    Berlin : {
+        lat: 3,
+        lon: 2
+    },
+    Paris : {
+        lat: 3,
+        lon: 2
+    },
+    Dublin : {
+        lat: 3,
+        lon: 2
+    },
+    Milan : {
+        lat: 3,
+        lon: 2
+    },
+    Madrid : {
+        lat: 3,
+        lon: 2
+    },
+    Edinburgh : {
+        lat: 3,
+        lon: 2
+    },
+    
+
+}
+
+let searchedCities = {};
 
 
 
