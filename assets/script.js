@@ -72,6 +72,7 @@ function exampleCall(){
 function getTime(){
     day = moment();
     console.log(day._d);
+    $('#date').text(day._d);
 }
 
 function setWeatherIcon(){

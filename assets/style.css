@@ -49,6 +49,13 @@ body {
     margin: 20px;
 }
 
+.weatherCard {
+    color: white;
+    background-color: cadetblue;
+    margin: 5px;
+    text-align: center;
+}
+
 
 #citySearch {
     position: relative;
@@ -69,6 +76,17 @@ body {
 }
 
 #item3 {
+    margin-left: 50px;
     grid-area: areaThree;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas: 
+    'forecast forecast forecast forecast forecast'
+    'cards cards cards cards cards'
+    ;
 }
 
+#forecastTitle {
+    grid-area: forecast;
+}
