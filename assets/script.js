@@ -53,6 +53,12 @@ var buttons = Array.prototype.slice.call(buttonquery).map(function(element){
     return element
 });
 
+var weatherCardQuery = document.querySelectorAll(".weatherCard");
+var weatherCards = Array.prototype.slice.call(weatherCardQuery).map(function(element){
+    return element
+});
+
+
 
 function exampleCall(){
     $.ajax({
