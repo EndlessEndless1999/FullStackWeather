@@ -48,6 +48,10 @@ const cities = {
 
 let searchedCities = {};
 
+var buttonquery = document.querySelectorAll(".btn");
+var buttons = Array.prototype.slice.call(buttonquery).map(function(element){
+    return element
+});
 
 
 function exampleCall(){
