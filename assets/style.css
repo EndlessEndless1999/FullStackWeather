@@ -1,26 +1,70 @@
+body {
+    background-color: blue;
+}
+
+.headerContainer {
+    display: flex;
+}
+
+.headerH1 {
+    text-align: center;
+    color: white;
+    background-color: blue;
+}
+
+.headerH2 {
+    text-align: center;
+}
+
+
 .mainContainer {
+    background-color: white;
     display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 1fr 1fr;
     grid-template-areas: 
-    '1 2'
-    '1 3'
+    'areaOne areaTwo areaTwo areaTwo'
+    'areaOne areaThree areaThree areaThree'
     ;
 }
 
 .containerArea {
-    outline: dotted black;
+    height: 300px;
+}
+
+.searchBtn {
+    background-color: aqua;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    width: 90%;
+}
+
+.btn {
+    position: relative;
+    top: 20px;
+    padding: 10px;
+    margin: 20px;
+}
+
+
+#citySearch {
+    position: relative;
+    flex-direction: row;
+    width: 90%;
+    height: 30px;
+    left: 15px;
 }
 
 #item1 {
-    grid-area: 1;
+    grid-area: areaOne;
+    display: flex;
+    flex-direction: column;
 }
 
 #item2 {
-    grid-area: 2;
+    grid-area: areaTwo;
 }
 
 #item3 {
-    grid-area: 3;
+    grid-area: areaThree;
 }
 
