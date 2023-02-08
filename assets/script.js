@@ -1,9 +1,8 @@
 
-let latitude = '51.50075';
-let longitude = '-0.12120';
+let city = 'London'
 
 const APIkey = '70126ef86ab9fc4f2eea754dbbaf84a3';
-const queryURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&appid=' + APIkey;
+const queryURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + APIkey;
 
 let day;
 
@@ -37,13 +36,7 @@ const cities = {
     Madrid : {
         lat: 3,
         lon: 2
-    },
-    Edinburgh : {
-        lat: 3,
-        lon: 2
-    },
-    
-
+    }
 }
 
 let searchedCities = {};
@@ -60,7 +53,7 @@ var weatherCards = Array.prototype.slice.call(weatherCardQuery).map(function(ele
 
 
 
-function exampleCall(){
+function Call(){
     $.ajax({
         url: queryURL,
         method: 'GET'
@@ -81,4 +74,4 @@ function setWeatherIcon(){
 
 getTime();
 
-exampleCall();
+Call();
