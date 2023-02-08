@@ -1,8 +1,11 @@
 
-let city = 'London'
 
+let city = ''
 const APIkey = '70126ef86ab9fc4f2eea754dbbaf84a3';
-const queryURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + APIkey;
+let queryURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + APIkey;
+
+
+let callResults;
 
 let day;
 
@@ -55,10 +58,12 @@ var weatherCards = Array.prototype.slice.call(weatherCardQuery).map(function(ele
 
 function Call(){
     $.ajax({
-        url: queryURL,
+        url: 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=' + APIkey,
         method: 'GET'
     }).then(function(response){
         console.log(response);
+        callResults = response;
+        update();
     })
 }
 
@@ -72,6 +77,25 @@ function setWeatherIcon(){
 
 }
 
-getTime();
+function update(){
+    for(let i = 0; i < weatherCards.length; i++){
+        weatherCards[i].querySelector('.temp').innerHTML = 'TEMP : ' + callResults.list[i].main.temp;
+        weatherCards[i].querySelector('.wind').innerHTML = 'WIND SPEED : ' + callResults.list[i].wind.speed;
+        weatherCards[i].querySelector('.humidity').innerHTML = 'HUMIDITY : ' + callResults.list[i].main.humidity;
+    }
+}
 
-Call();
+function init(){
+    getTime();
+    Call();
+
+    $('.searchBtn').on('click', function(){
+        myCity = $('#citySearch').val();
+        toString(myCity);
+        city = myCity;
+        console.log(city);
+        Call();
+    })
+}
+
+init();
