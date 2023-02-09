@@ -78,10 +78,14 @@ function setWeatherIcon(){
 }
 
 function update(){
+    $('.icon').text(callResults.city.name);
     for(let i = 0; i < weatherCards.length; i++){
-        weatherCards[i].querySelector('.temp').innerHTML = 'TEMP : ' + callResults.list[i].main.temp;
-        weatherCards[i].querySelector('.wind').innerHTML = 'WIND SPEED : ' + callResults.list[i].wind.speed;
-        weatherCards[i].querySelector('.humidity').innerHTML = 'HUMIDITY : ' + callResults.list[i].main.humidity;
+        weatherCards[i].querySelector('.temp').innerHTML = 'TEMP : ' + callResults.list[i + 1].main.temp;
+        weatherCards[i].querySelector('.wind').innerHTML = 'WIND SPEED : ' + callResults.list[i + 1].wind.speed;
+        weatherCards[i].querySelector('.humidity').innerHTML = 'HUMIDITY : ' + callResults.list[i + 1].main.humidity;
+        $('#titleTemp').text('Temp: ' + callResults.list[0].main.temp);
+        $('#titleWind').text('Wind: ' + callResults.list[0].wind.speed);
+        $('#titleHumidity').text('Humidity: ' + callResults.list[0].main.humidity);
     }
 }
 
@@ -90,12 +94,23 @@ function init(){
     Call();
 
     $('.searchBtn').on('click', function(){
-        myCity = $('#citySearch').val();
+        let myCity = $('#citySearch').val();
         toString(myCity);
         city = myCity;
         console.log(city);
         Call();
     })
+
+    for(let i = 0; i < buttons.length; i++){
+        buttons[i].addEventListener('click', function(){
+            let btnCity = buttons[i].innerHTML;
+            city = btnCity;
+            console.log(city);
+            Call();
+        })
+
+    }
+
 }
 
 init();
