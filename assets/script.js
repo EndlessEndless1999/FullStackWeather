@@ -8,6 +8,11 @@ let queryURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&
 let callResults;
 
 let day;
+let day2;
+let day3;
+let day4;
+let day5;
+let day6;
 
 let tempEvals = {
     hot: 30,
@@ -69,9 +74,18 @@ function Call(){
 
 function getTime(){
     day = moment();
+    day2 = moment().add(1, 'days');
+    day3 = moment().add(2, 'days');
+    day4 = moment().add(3, 'days');
+    day5 = moment().add(4, 'days');
+    day6 = moment().add(5, 'days');
+
+    
     console.log(day._d);
     $('#date').text(day._d);
 }
+
+
 
 function setWeatherIcon(){
 
@@ -109,6 +123,11 @@ function init(){
             Call();
         })
 
+    }
+
+    for(let i = 0; i < weatherCards.length; i++){
+        let days = [day2._d, day3._d, day4._d, day5._d, day6._d];
+        weatherCards[i].querySelector('.date').innerHTML = days[i];
     }
 
 }
